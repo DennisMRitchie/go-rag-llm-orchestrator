@@ -1,6 +1,6 @@
 bin/
 node_modules/
-*.pb.go
+
 __pycache__/
 *.pyc
 .env
