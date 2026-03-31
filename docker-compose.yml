@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  go-rag:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - LLM_SERVICE_ADDR=python-llm-service:50051
+    depends_on:
+      - python-llm-service
+
+  python-llm-service:
+    build: ./python-llm-service
+    ports:
+      - "50051:50051"

@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package llm;
+
+option go_package = "github.com/DennisMRitchie/go-rag-llm-orchestrator/proto/llm";
+
+service LLMService {
+  rpc Generate(GenerateRequest) returns (GenerateResponse) {}
+}
+
+message GenerateRequest {
+  string prompt = 1;
+  repeated string context_chunks = 2;
+  float temperature = 3;
+}
+
+message GenerateResponse {
+  string answer = 1;
+  float confidence = 2;
+}
